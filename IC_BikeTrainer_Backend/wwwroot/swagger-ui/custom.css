@@ -1,0 +1,48 @@
+/*
+Route descriptors
+    - Font Color and Font Size
+    - Right alignment
+ */
+
+.swagger-ui .opblock .opblock-summary-description {
+    color: black !important;
+    font-size: 14px !important;
+}
+
+.swagger-ui .opblock .opblock-summary-path-description-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.swagger-ui .opblock .opblock-summary-path-description-wrapper > *:first-child {
+    text-align: left;
+}
+
+.swagger-ui .opblock .opblock-summary-path-description-wrapper > *:last-child {
+    text-align: right;
+}
+
+/*
+Sections
+    - Background color + Background color on Hover
+ */
+
+.swagger-ui .opblock-tag {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.swagger-ui .opblock-tag:hover {
+    background-color: rgba(97, 175, 254, 0.6) !important;
+}
+
+/*
+Paddings
+ */
+
+.swagger-ui .opblock .opblock-description-wrapper {
+    padding: 10px 20px !important;
+}
+
+.swagger-ui .opblock .table-container {
+    padding: 10px 10px !important;
+}
