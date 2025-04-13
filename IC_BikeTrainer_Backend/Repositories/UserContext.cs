@@ -3,7 +3,7 @@ using IC_BikeTrainer_Backend.Models;
 
 namespace IC_BikeTrainer_Backend.Repositories
 {
-    public class UserContext : DbContext
+    public class UserContext : DbContext, IUserContext
     {
         public UserContext(DbContextOptions<UserContext> options) : base(options) { }
     
@@ -13,5 +13,11 @@ namespace IC_BikeTrainer_Backend.Repositories
         {
             return await UsersTable.FirstOrDefaultAsync(u => u.Username == username);
         }
+        
+        public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
+        {
+            return await base.SaveChangesAsync(cancellationToken);
+        }
+
     }
 }
