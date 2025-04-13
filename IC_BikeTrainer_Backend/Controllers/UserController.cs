@@ -58,7 +58,7 @@ namespace IC_BikeTrainer_Backend.Controllers
             if (!BCrypt.Net.BCrypt.Verify(request.Password, user.Password))
                 return BadRequest(new { error = "Invalid 'username' or 'password'." });
 
-            var token = GenerateUserJwtToken(user);
+            var token = GenerateJwtToken(user);
 
             return Ok(new
             {
@@ -111,7 +111,7 @@ namespace IC_BikeTrainer_Backend.Controllers
 
                 var userId = await _userService.RegisterAsync(request);
                 var user = await _userService.GetUserByUsernameAsync(request.Username);
-                var token = GenerateUserJwtToken(user);
+                var token = GenerateJwtToken(user);
 
                 return Created("", new
                 {
@@ -158,15 +158,18 @@ namespace IC_BikeTrainer_Backend.Controllers
             }
         }
         
-        private string GenerateUserJwtToken(User user)
+        private string GenerateJwtToken(User user)
         {
             var claims = new[]
             {
                 new Claim(ClaimTypes.Name, user.Username),
-                new Claim(ClaimTypes.Role, nameof(AuthRoles.User))
+                new Claim(ClaimTypes.Role, user.Role.ToString())
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var jwtKey = _configuration["Jwt:Key"]
+                         ?? throw new InvalidOperationException("JWT key is not configured.");
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(

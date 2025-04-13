@@ -26,7 +26,7 @@ namespace IC_BikeTrainer_Backend.Controllers
         /// <response code="200">Returns the user details.</response>
         /// <response code="404">If the user with the specified username is not found.</response>
         /// <response code="500">If an internal server error occurs.</response>
-        [Authorize(Roles = nameof(AuthRoles.User))] // Change to Admin eventually
+        [Authorize(Roles = nameof(AuthRoles.Admin))]
         [HttpGet("{username}")]
         [ProducesResponseType(typeof(User), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
@@ -55,7 +55,7 @@ namespace IC_BikeTrainer_Backend.Controllers
         /// </remarks>
         /// <response code="200">Returns the list of all users.</response>
         /// <response code="500">If an internal server error occurs.</response>
-        [Authorize(Roles = "User")] // Change to Admin eventually
+        [Authorize(Roles = nameof(AuthRoles.Admin))]
         [HttpGet]
         [ProducesResponseType(typeof(List<User>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
