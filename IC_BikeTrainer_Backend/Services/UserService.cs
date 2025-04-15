@@ -6,9 +6,9 @@ namespace IC_BikeTrainer_Backend.Services
 {
     public class UserService : IUserService
     {
-        private readonly UserContext _userContext;
+        private readonly IUserContext _userContext;
     
-        public UserService(UserContext userContext)
+        public UserService(IUserContext userContext)
         {
             _userContext = userContext;
         }

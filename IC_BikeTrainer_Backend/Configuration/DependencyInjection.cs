@@ -8,11 +8,9 @@ namespace IC_BikeTrainer_Backend.Configuration
     {
         public static void AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
-            // Get database path from configuration
             string dbPath = configuration["Database:Path"] ?? "Data/database.db";
             string dbDirectory = Path.GetDirectoryName(dbPath) ?? Directory.GetCurrentDirectory();
 
-            // Ensure the database directory exists
             if (!Directory.Exists(dbDirectory))
             {
                 Directory.CreateDirectory(dbDirectory);
@@ -24,6 +22,7 @@ namespace IC_BikeTrainer_Backend.Configuration
 
             // Register application services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserContext, UserContext>();
         }
     }
 }
