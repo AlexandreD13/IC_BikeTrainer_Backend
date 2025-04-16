@@ -1,0 +1,22 @@
+INSERT INTO DevicesTable (DeviceName, MacAddress, UserId)
+VALUES
+    ('IC-Bike Sensor 1',  'BC:34:FF:B5:00:01', 1),
+    ('IC-Bike Sensor 2',  'BC:34:FF:B5:00:02', 1),
+    ('IC-Bike Sensor 3',  'BC:34:FF:B5:00:03', 1),
+    ('IC-Bike Sensor 4',  'BC:34:FF:B5:00:04', 2),
+    ('IC-Bike Sensor 5',  'BC:34:FF:B5:00:05', 2),
+    ('IC-Bike Sensor 6',  'BC:34:FF:B5:00:06', 3),
+    ('IC-Bike Sensor 7',  'BC:34:FF:B5:00:07', 3),
+    ('IC-Bike Sensor 8',  'BC:34:FF:B5:00:08', 4),
+    ('IC-Bike Sensor 9',  'BC:34:FF:B5:00:09', 4),
+    ('IC-Bike Sensor 10', 'BC:34:FF:B5:00:0A', 4),
+    ('IC-Bike Sensor 11', 'BC:34:FF:B5:00:0B', 4),
+    ('IC-Bike Sensor 12', 'BC:34:FF:B5:00:0C', 5),
+    ('IC-Bike Sensor 13', 'BC:34:FF:B5:00:0D', 5),
+    ('IC-Bike Sensor 14', 'BC:34:FF:B5:00:0E', 6),
+    ('IC-Bike Sensor 15', 'BC:34:FF:B5:00:0F', 7),
+    ('IC-Bike Sensor 16', 'BC:34:FF:B5:00:10', 7),
+    ('IC-Bike Sensor 17', 'BC:34:FF:B5:00:11', 7),
+    ('IC-Bike Sensor 18', 'BC:34:FF:B5:00:12', 8),
+    ('IC-Bike Sensor 19', 'BC:34:FF:B5:00:13', 8),
+    ('IC-Bike Sensor 20', 'BC:34:FF:B5:00:14', 9);

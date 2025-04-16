@@ -8,7 +8,12 @@ namespace IC_BikeTrainer_Backend.Configuration
     {
         public static void AddApplicationServices(this IServiceCollection services, IConfiguration configuration)
         {
+<<<<<<< Updated upstream
             string dbPath = configuration["Database:Path"] ?? "Data/database.db";
+=======
+            // Get database path from configuration
+            string dbPath = configuration["Database:Path"] ?? "Data/prod.db";
+>>>>>>> Stashed changes
             string dbDirectory = Path.GetDirectoryName(dbPath) ?? Directory.GetCurrentDirectory();
 
             if (!Directory.Exists(dbDirectory))
@@ -17,7 +22,7 @@ namespace IC_BikeTrainer_Backend.Configuration
             }
 
             // Register DbContext
-            services.AddDbContext<UserContext>(options =>
+            services.AddDbContext<Context>(options =>
                 options.UseSqlite($"Data Source={dbPath}"));
 
             // Register application services

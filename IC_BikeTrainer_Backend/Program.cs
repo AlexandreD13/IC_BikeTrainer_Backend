@@ -12,40 +12,6 @@ Log.Logger = new LoggerConfiguration()
     .WriteTo.File("Logs/warning.log", restrictedToMinimumLevel: LogEventLevel.Warning)
     .CreateLogger();
 
-// To use the logger
-//
-// public class MyService
-// {
-    // private readonly ILogger<MyService> _logger;
-    //
-    // public MyService(ILogger<MyService> logger)
-    // {
-    //     _logger = logger;
-    // }
-    //
-    // public void DoSomething()
-    // {
-    //     _logger.LogInformation("Doing something!");
-    // }
-// }
-//
-// public class MyController : ControllerBase
-// {
-    // private readonly ILogger<MyController> _logger;
-    //
-    // public MyController(ILogger<MyController> logger)
-    // {
-    //     _logger = logger;
-    // }
-    //
-    // [HttpGet]
-    // public IActionResult Index()
-    // {
-    //     _logger.LogInformation("Index accessed");
-    //     return Ok();
-    // }
-// }
-
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Host.UseSerilog();
@@ -60,7 +26,7 @@ builder.Services.AddSingleton<IRateLimitConfiguration, RateLimitConfiguration>()
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddApplicationServices(builder.Configuration); // Inject dependencies
-builder.Services.ConfigureSwagger(); // Configure Swagger
+builder.Services.ConfigureSwagger(builder.Configuration); // Configure Swagger
 
 // JWT Token
 var jwtSettings = builder.Configuration.GetSection("Jwt");

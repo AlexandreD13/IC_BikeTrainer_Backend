@@ -6,16 +6,22 @@ namespace IC_BikeTrainer_Backend.Services
 {
     public class UserService : IUserService
     {
+<<<<<<< Updated upstream
         private readonly IUserContext _userContext;
     
         public UserService(IUserContext userContext)
+=======
+        private readonly Context _context;
+    
+        public UserService(Context context)
+>>>>>>> Stashed changes
         {
-            _userContext = userContext;
+            _context = context;
         }
     
         public async Task<User?> AuthenticateUserAsync(string username, string password)
         {
-            var user = await _userContext.GetByUsernameAsync(username);
+            var user = await _context.GetByUsernameAsync(username);
             if (user == null)
                 return null;
 
@@ -38,15 +44,15 @@ namespace IC_BikeTrainer_Backend.Services
                 Height = request.Height
             };
     
-            await _userContext.UsersTable.AddAsync(user);
-            await _userContext.SaveChangesAsync();
+            await _context.UsersTable.AddAsync(user);
+            await _context.SaveChangesAsync();
     
             return user.Id;
         }
     
         public async Task<int> UpdateUserAsync(string username, UpdateUserRequest request)
         {
-            var user = await _userContext.UsersTable.FirstOrDefaultAsync(u => u.Username == username);
+            var user = await _context.UsersTable.FirstOrDefaultAsync(u => u.Username == username);
             if (user == null)
             {
                 return 0;
@@ -63,27 +69,27 @@ namespace IC_BikeTrainer_Backend.Services
             if (request.Height.HasValue)
                 user.Height = request.Height;
     
-            return await _userContext.SaveChangesAsync();
+            return await _context.SaveChangesAsync();
         }
     
         public async Task<bool> UserExistsByUsernameAsync(string username)
         {
-            return await _userContext.UsersTable.AnyAsync(u => u.Username == username);
+            return await _context.UsersTable.AnyAsync(u => u.Username == username);
         }
     
         public async Task<bool> UserExistsByEmailAsync(string email)
         {
-            return await _userContext.UsersTable.AnyAsync(u => u.Email == email);
+            return await _context.UsersTable.AnyAsync(u => u.Email == email);
         }
         
         public async Task<User?> GetUserByUsernameAsync(string username)
         {
-            return await _userContext.GetByUsernameAsync(username);
+            return await _context.GetByUsernameAsync(username);
         }
         
         public async Task<List<User>> GetAllUsersAsync()
         {
-            return await _userContext.UsersTable.ToListAsync();
+            return await _context.UsersTable.ToListAsync();
         }
     }
 }

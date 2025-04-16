@@ -11,7 +11,7 @@ public class User
     public string Username { get; set; } = "";
     
     [Required]
-    [MaxLength(50)]
+    [MaxLength(255)]
     public string Password { get; set; } = "";
     
     [Required]
@@ -33,4 +33,7 @@ public class User
     public double? Height { get; set; }
     
     public AuthRoles Role { get; set; } = AuthRoles.User;
+
+    [Required]
+    public DateTime ProfileCreationDate { get; set; } = DateTime.UtcNow;
 }

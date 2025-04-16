@@ -1,0 +1,2 @@
+DELETE FROM UsersTable
+WHERE Id = 1;
