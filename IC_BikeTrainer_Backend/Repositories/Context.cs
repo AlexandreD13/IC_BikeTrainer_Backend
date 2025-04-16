@@ -3,12 +3,22 @@ using IC_BikeTrainer_Backend.Models;
 
 namespace IC_BikeTrainer_Backend.Repositories
 {
+<<<<<<< Updated upstream:IC_BikeTrainer_Backend/Repositories/UserContext.cs
     public class UserContext : DbContext, IUserContext
+=======
+    public class Context : DbContext
+>>>>>>> Stashed changes:IC_BikeTrainer_Backend/Repositories/Context.cs
     {
-        public UserContext(DbContextOptions<UserContext> options) : base(options) { }
+        public Context(DbContextOptions<Context> options) : base(options) { }
     
         public DbSet<User> UsersTable { get; set; }
-    
+        
+        public DbSet<KnownDevice> DevicesTable { get; set; }
+        
+        public DbSet<TrainingSession> TrainingSessionsTable { get; set; }
+
+        public DbSet<TrainingEntry> TrainingEntriesTable { get; set; }
+
         public async Task<User?> GetByUsernameAsync(string username)
         {
             return await UsersTable.FirstOrDefaultAsync(u => u.Username == username);
