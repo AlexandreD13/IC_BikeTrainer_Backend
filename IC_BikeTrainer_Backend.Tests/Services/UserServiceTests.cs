@@ -8,12 +8,12 @@ namespace IC_BikeTrainer_Backend.Tests.Services
 {
     public class UserServiceTests
     {
-        private readonly Mock<IUserContext> _mockContext;
+        private readonly Mock<Context> _mockContext;
         private readonly UserService _userService;
 
         public UserServiceTests()
         {
-            _mockContext = new Mock<IUserContext>();
+            _mockContext = new Mock<Context>();
             _userService = new UserService(_mockContext.Object);
         }
 
@@ -138,7 +138,7 @@ namespace IC_BikeTrainer_Backend.Tests.Services
             mockSet.As<IQueryable<User>>()
                 .Setup(m => m.GetEnumerator()).Returns(users.GetEnumerator());
 
-            var mockContext = new Mock<IUserContext>();
+            var mockContext = new Mock<Context>();
             mockContext.Setup(c => c.UsersTable).Returns(mockSet.Object);
             mockContext.Setup(c => c.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
 
