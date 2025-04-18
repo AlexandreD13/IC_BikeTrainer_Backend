@@ -3,7 +3,7 @@ using IC_BikeTrainer_Backend.Models;
 
 namespace IC_BikeTrainer_Backend.Repositories
 {
-    public class Context : DbContext
+    public class Context : DbContext, IContext
     {
         public Context(DbContextOptions<Context> options) : base(options) { }
     

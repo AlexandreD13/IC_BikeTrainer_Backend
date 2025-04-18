@@ -2,7 +2,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IC_BikeTrainer_Backend", "IC_BikeTrainer_Backend\IC_BikeTrainer_Backend.csproj", "{CF6C1443-A7A0-41CD-AD16-236163070F29}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IC_BikeTrainer_Backend.Tests", "IC_BikeTrainer_Backend.Tests\IC_BikeTrainer_Backend.Tests.csproj", "{D21DE16B-C23A-4729-8716-6DB7AACEA8D0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IC_BikeTrainer_Backend.UnitTests", "IC_BikeTrainer_Backend.UnitTests\IC_BikeTrainer_Backend.UnitTests.csproj", "{D21DE16B-C23A-4729-8716-6DB7AACEA8D0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

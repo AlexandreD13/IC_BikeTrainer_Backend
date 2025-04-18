@@ -20,6 +20,8 @@ namespace IC_BikeTrainer_Backend.Configuration
             // Register DbContext
             services.AddDbContext<Context>(options =>
                 options.UseSqlite($"Data Source={dbPath}"));
+            
+            services.AddScoped<IContext, Context>();
 
             // Register application services
             services.AddScoped<IUserService, UserService>();
