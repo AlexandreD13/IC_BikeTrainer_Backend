@@ -6,15 +6,9 @@ namespace IC_BikeTrainer_Backend.Services
 {
     public class UserService : IUserService
     {
-<<<<<<< Updated upstream
-        private readonly IUserContext _userContext;
+        private readonly IContext _context;
     
-        public UserService(IUserContext userContext)
-=======
-        private readonly Context _context;
-    
-        public UserService(Context context)
->>>>>>> Stashed changes
+        public UserService(IContext context)
         {
             _context = context;
         }

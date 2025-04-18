@@ -3,11 +3,7 @@ using IC_BikeTrainer_Backend.Models;
 
 namespace IC_BikeTrainer_Backend.Repositories
 {
-<<<<<<< Updated upstream:IC_BikeTrainer_Backend/Repositories/UserContext.cs
-    public class UserContext : DbContext, IUserContext
-=======
-    public class Context : DbContext
->>>>>>> Stashed changes:IC_BikeTrainer_Backend/Repositories/Context.cs
+    public class Context : DbContext, IContext
     {
         public Context(DbContextOptions<Context> options) : base(options) { }
     

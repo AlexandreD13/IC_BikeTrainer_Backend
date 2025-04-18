@@ -1,19 +1,20 @@
 using IC_BikeTrainer_Backend.Models;
 using IC_BikeTrainer_Backend.Repositories;
 using IC_BikeTrainer_Backend.Services;
+using IC_BikeTrainer_Backend.Tests;
 using Moq;
 using Microsoft.EntityFrameworkCore;
 
-namespace IC_BikeTrainer_Backend.Tests.Services
+namespace IC_BikeTrainer_Backend.UnitTests.Services
 {
     public class UserServiceTests
     {
-        private readonly Mock<IUserContext> _mockContext;
+        private readonly Mock<IContext> _mockContext;
         private readonly UserService _userService;
 
         public UserServiceTests()
         {
-            _mockContext = new Mock<IUserContext>();
+            _mockContext = new Mock<IContext>();
             _userService = new UserService(_mockContext.Object);
         }
 
@@ -63,11 +64,11 @@ namespace IC_BikeTrainer_Backend.Tests.Services
             var mockSet = new Mock<DbSet<User>>();
             var users = new List<User>();
             mockSet.Setup(m => m.AddAsync(It.IsAny<User>(), default))
-                   .Callback<User, System.Threading.CancellationToken>((u, _) => {
+                   .Callback<User, CancellationToken>((u, _) => {
                        u.Id = 42;
                        users.Add(u);
                    })
-                   .ReturnsAsync((User u, System.Threading.CancellationToken _) => new Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<User>(null!));
+                   .ReturnsAsync((User u, CancellationToken _) => new Microsoft.EntityFrameworkCore.ChangeTracking.EntityEntry<User>(null!));
 
             _mockContext.Setup(m => m.UsersTable).Returns(mockSet.Object);
             _mockContext.Setup(m => m.SaveChangesAsync(default)).ReturnsAsync(1);
@@ -138,18 +139,18 @@ namespace IC_BikeTrainer_Backend.Tests.Services
             mockSet.As<IQueryable<User>>()
                 .Setup(m => m.GetEnumerator()).Returns(users.GetEnumerator());
 
-            var mockContext = new Mock<IUserContext>();
+            var mockContext = new Mock<IContext>();
             mockContext.Setup(c => c.UsersTable).Returns(mockSet.Object);
             mockContext.Setup(c => c.SaveChangesAsync(It.IsAny<CancellationToken>())).ReturnsAsync(1);
 
             var userService = new UserService(mockContext.Object);
 
-            var request = new UpdateUserRequest { Firstname = "NewName" };
+            var request = new UpdateUserRequest { Firstname = "Bill" };
 
             var result = await userService.UpdateUserAsync("john", request);
 
             Assert.Equal(1, result);
-            Assert.Equal("NewName", user.Firstname);
+            Assert.Equal("Bill", user.Firstname);
         }
 
         [Fact]
