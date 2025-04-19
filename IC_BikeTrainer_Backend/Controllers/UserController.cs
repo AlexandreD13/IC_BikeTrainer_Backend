@@ -10,7 +10,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace IC_BikeTrainer_Backend.Controllers
 {
-    [Route("api/users")]
+    [Route("api/user")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -79,6 +79,7 @@ namespace IC_BikeTrainer_Backend.Controllers
         /// <response code="500">If an internal server error occurs.</response>
         [AllowAnonymous]
         [HttpPost("register")]
+        [EnableRateLimiting("LoginLimiter")]
         [ProducesResponseType(typeof(object), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
@@ -127,34 +128,41 @@ namespace IC_BikeTrainer_Backend.Controllers
         }
     
         /// <summary>
-        /// Updates an existing user's information.
+        /// Updates the authenticated user's information.
         /// </summary>
         /// <remarks>
-        /// This method updates the specified user's information such as firstname, lastname, email, weight, and height using the provided update request data. If the user is not found or no changes are made, the appropriate response is returned.
+        /// This method updates the authenticated user's information such as firstname, lastname, email, weight, and height using the provided update request data.
         /// </remarks>
-        /// <param name="username">The username of the user to be updated.</param>
         /// <param name="request">An object containing updated details for the user.</param>
         /// <response code="200">User successfully updated.</response>
         /// <response code="404">If the user is not found or no changes were made.</response>
         /// <response code="500">If an internal server error occurs.</response>
         [Authorize]
-        [HttpPut("{username}")]
+        [HttpPut("updateProfile")]
         [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> UpdateUser(string username, [FromBody] UpdateUserRequest request)
+        public async Task<IActionResult> UpdateOwnProfile([FromBody] UpdateUserRequest request)
         {
             try
             {
+                var username = User.Identity?.Name;
+
+                if (string.IsNullOrWhiteSpace(username))
+                {
+                    return StatusCode(500, new { error = "Invalid JWT token." });
+                }
+
                 var changes = await _userService.UpdateUserAsync(username, request);
+
                 if (changes == 0)
-                    return NotFound(new { error = $"User '{username}' not found or no changes made." });
-    
-                return Ok(new { message = $"User '{username}' updated successfully." });
+                    return NotFound(new { error = "User not found or no changes made." });
+
+                return Ok(new { message = "Your profile was updated successfully." });
             }
             catch (Exception ex)
             {
-                return StatusCode(500, new { error = $"Error updating user '{username}'.", details = ex.Message });
+                return StatusCode(500, new { error = "Error updating profile.", details = ex.Message });
             }
         }
         

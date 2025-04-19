@@ -22,7 +22,7 @@ namespace IC_BikeTrainer_Backend.Configuration
                     Title = "IC BikeTrainer API",
                     Version = $"v1.0.0 | Current Database: {capitalizedDatabaseName}",
                     Description = "API documentation for _**IC BikeTrainer**_ service. " +
-                                  "Limited to 10 requests per minute per IP.",
+                                  "**Limited to 100 requests** per minute per IP.",
                     License = new OpenApiLicense
                     {
                         Name = "MIT License",
