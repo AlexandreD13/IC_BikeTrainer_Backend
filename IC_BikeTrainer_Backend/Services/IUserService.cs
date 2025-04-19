@@ -11,5 +11,7 @@ namespace IC_BikeTrainer_Backend.Services
         Task<bool> UserExistsByEmailAsync(string email);
         Task<User?> GetUserByUsernameAsync(string username);
         Task<List<User>> GetAllUsersAsync();
+        Task DeleteUserAsync(string username);
+        Task DeleteAllUsersAsync();
     }
 }

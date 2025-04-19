@@ -85,5 +85,41 @@ namespace IC_BikeTrainer_Backend.Services
         {
             return await _context.UsersTable.ToListAsync();
         }
+        
+        public async Task DeleteUserAsync(string username)
+        {
+            try
+            {
+                var user = await _context.GetByUsernameAsync(username);
+
+                if (user == null)
+                    throw new InvalidOperationException("User not found.");
+
+                _context.UsersTable.Remove(user);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting user: " + ex.Message);
+            }
+        }
+
+        public async Task DeleteAllUsersAsync()
+        {
+            try
+            {
+                var users = await _context.UsersTable.ToListAsync();
+                
+                if (users.Count == 0)
+                    throw new InvalidOperationException("No users found to delete.");
+
+                _context.UsersTable.RemoveRange(users);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting all users: " + ex.Message);
+            }
+        }
     }
 }

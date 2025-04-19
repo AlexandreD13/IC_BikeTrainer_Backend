@@ -1,0 +1,223 @@
+### User 1
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "alex",
+    "password": "password123",
+    "firstname": "Alexandre",
+    "lastname": "Smith",
+    "email": "alex@hotmail.com",
+    "weight": 65,
+    "height": 178
+}
+
+### User 2
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "bill98",
+    "password": "password158",
+    "firstname": "Bill",
+    "lastname": "Clinton",
+    "email": "bc@us.gov",
+    "weight": 53,
+    "height": 241
+}
+
+### User 3
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "lara_croft",
+    "password": "tombRaider2024",
+    "firstname": "Lara",
+    "lastname": "Croft",
+    "email": "lara@adventure.com",
+    "weight": 58,
+    "height": 168
+}
+
+### User 4
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "ironman",
+    "password": "jarvis123",
+    "firstname": "Tony",
+    "lastname": "Stark",
+    "email": "tony@starkindustries.com",
+    "weight": 78,
+    "height": 185
+}
+
+### User 5
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "neo_matrix",
+    "password": "thereisnospoon",
+    "firstname": "Thomas",
+    "lastname": "Anderson",
+    "email": "neo@matrix.com",
+    "weight": 70,
+    "height": 183
+}
+
+### User 6
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "hermione_g",
+    "password": "leviosa!",
+    "firstname": "Hermione",
+    "lastname": "Granger",
+    "email": "hermione@hogwarts.edu",
+    "weight": 54,
+    "height": 164
+}
+
+### User 7
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "batman",
+    "password": "IamTheNight1",
+    "firstname": "Bruce",
+    "lastname": "Wayne",
+    "email": "bruce@wayneenterprises.com",
+    "weight": 95,
+    "height": 188
+}
+
+### User 8
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "sakura123",
+    "password": "cherryblossom",
+    "firstname": "Sakura",
+    "lastname": "Haruno",
+    "email": "sakura@konoha.com",
+    "weight": 47,
+    "height": 161
+}
+
+### User 9
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "goku_ssj",
+    "password": "kamehameha",
+    "firstname": "Goku",
+    "lastname": "Son",
+    "email": "goku@dbz.com",
+    "weight": 72,
+    "height": 175
+}
+
+### User 10
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "wonder_w",
+    "password": "themyscira",
+    "firstname": "Diana",
+    "lastname": "Prince",
+    "email": "diana@amazon.com",
+    "weight": 70,
+    "height": 180
+}
+
+### User 11
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "frodo_baggins",
+    "password": "onering123",
+    "firstname": "Frodo",
+    "lastname": "Baggins",
+    "email": "frodo@shire.net",
+    "weight": 40,
+    "height": 122
+}
+
+### User 12
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "aloy_hzd",
+    "password": "forbiddenwest",
+    "firstname": "Aloy",
+    "lastname": "Nora",
+    "email": "aloy@gaia.org",
+    "weight": 61,
+    "height": 169
+}
+
+### User 13
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "kratos_go",
+    "password": "boy1234",
+    "firstname": "Kratos",
+    "lastname": "Spartan",
+    "email": "kratos@valhalla.net",
+    "weight": 110,
+    "height": 193
+}
+
+### User 14
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "samus_aran",
+    "password": "metroidpower",
+    "firstname": "Samus",
+    "lastname": "Aran",
+    "email": "samus@galacticfederation.space",
+    "weight": 75,
+    "height": 190
+}
+
+### User 15
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "nathan_d",
+    "password": "uncharted4",
+    "firstname": "Nathan",
+    "lastname": "Drake",
+    "email": "nathan@treasurehunt.com",
+    "weight": 78,
+    "height": 182
+}
+
+### User 16
+POST https://localhost:44314/api/users/register
+Content-Type: application/json
+
+{
+    "username": "john_wick",
+    "password": "babaYaga",
+    "firstname": "John",
+    "lastname": "Wick",
+    "email": "john@continental.com",
+    "weight": 82,
+    "height": 186
+}

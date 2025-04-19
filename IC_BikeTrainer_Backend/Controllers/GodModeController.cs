@@ -71,5 +71,62 @@ namespace IC_BikeTrainer_Backend.Controllers
                 return StatusCode(500, new { error = "Internal server error.", details = ex.Message });
             }
         }
+        
+        /// <summary>
+        /// Deletes a specific user by username.
+        /// </summary>
+        /// <remarks>
+        /// This method allows admins to delete a specific user by username.
+        /// </remarks>
+        /// <param name="username">The username of the user to delete.</param>
+        /// <response code="204">User successfully deleted.</response>
+        /// <response code="404">If the user with the specified username is not found.</response>
+        /// <response code="500">If an internal server error occurs.</response>
+        [Authorize(Roles = nameof(AuthRoles.Admin))]
+        [HttpDelete("{username}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> DeleteUser(string username)
+        {
+            try
+            {
+                await _userService.DeleteUserAsync(username);
+                return NoContent();
+            }
+            catch (InvalidOperationException)
+            {
+                return NotFound(new { error = $"User '{username}' not found." });
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Internal server error.", details = ex.Message });
+            }
+        }
+
+        /// <summary>
+        /// Deletes all users.
+        /// </summary>
+        /// <remarks>
+        /// This method allows admins to delete all users in the system.
+        /// </remarks>
+        /// <response code="204">All users successfully deleted.</response>
+        /// <response code="500">If an internal server error occurs.</response>
+        [Authorize(Roles = nameof(AuthRoles.Admin))]
+        [HttpDelete]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> DeleteAllUsers()
+        {
+            try
+            {
+                await _userService.DeleteAllUsersAsync();
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, new { error = "Internal server error.", details = ex.Message });
+            }
+        }
     }
 }
