@@ -1,0 +1,24 @@
+@baseUrl = https://localhost:44314
+
+### Login with admin account
+@adminUser = alex
+@adminPass = password123
+
+POST {{baseUrl}}/api/user/login
+Content-Type: application/json
+
+{
+  "username": "{{adminUser}}",
+  "password": "{{adminPass}}"
+}
+
+> {%
+    console.log("Full response body:", response.body);
+    client.global.set("jwt", response.body.jwt);
+%}
+
+### Delete user
+@username = batman
+
+DELETE {{baseUrl}}/api/users/{{username}}
+Authorization: Bearer {{jwt}}
