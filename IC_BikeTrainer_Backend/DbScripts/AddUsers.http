@@ -1,5 +1,5 @@
 ### User 1
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -13,7 +13,7 @@ Content-Type: application/json
 }
 
 ### User 2
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 ### User 3
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -41,7 +41,7 @@ Content-Type: application/json
 }
 
 ### User 4
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -55,7 +55,7 @@ Content-Type: application/json
 }
 
 ### User 5
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -69,7 +69,7 @@ Content-Type: application/json
 }
 
 ### User 6
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -83,7 +83,7 @@ Content-Type: application/json
 }
 
 ### User 7
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -97,7 +97,7 @@ Content-Type: application/json
 }
 
 ### User 8
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -111,7 +111,7 @@ Content-Type: application/json
 }
 
 ### User 9
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -125,7 +125,7 @@ Content-Type: application/json
 }
 
 ### User 10
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -139,7 +139,7 @@ Content-Type: application/json
 }
 
 ### User 11
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -153,7 +153,7 @@ Content-Type: application/json
 }
 
 ### User 12
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -167,7 +167,7 @@ Content-Type: application/json
 }
 
 ### User 13
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -181,7 +181,7 @@ Content-Type: application/json
 }
 
 ### User 14
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -195,7 +195,7 @@ Content-Type: application/json
 }
 
 ### User 15
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {
@@ -209,7 +209,7 @@ Content-Type: application/json
 }
 
 ### User 16
-POST https://localhost:44314/api/users/register
+POST https://localhost:44314/api/user/register
 Content-Type: application/json
 
 {

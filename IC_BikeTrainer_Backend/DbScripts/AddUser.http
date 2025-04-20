@@ -1,0 +1,12 @@
+POST https://localhost:44314/api/user/register
+Content-Type: application/json
+
+{
+    "username": "alex",
+    "password": "password123",
+    "firstname": "Alexandre",
+    "lastname": "Smith",
+    "email": "alex@hotmail.com",
+    "weight": 65,
+    "height": 178
+}
