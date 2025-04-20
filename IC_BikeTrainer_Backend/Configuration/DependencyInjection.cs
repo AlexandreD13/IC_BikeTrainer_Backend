@@ -25,6 +25,7 @@ namespace IC_BikeTrainer_Backend.Configuration
 
             // Register application services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IAuthService, AuthService>();
         }
     }
 }
