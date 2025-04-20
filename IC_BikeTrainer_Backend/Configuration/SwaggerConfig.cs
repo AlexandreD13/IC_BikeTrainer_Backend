@@ -22,7 +22,8 @@ namespace IC_BikeTrainer_Backend.Configuration
                     Title = "IC BikeTrainer API",
                     Version = $"v1.0.0 | Current Database: {capitalizedDatabaseName}",
                     Description = "API documentation for _**IC BikeTrainer**_ service. " +
-                                  "**Limited to 100 requests** per minute per IP.",
+                                  $"Limited to **{configuration["IpRateLimiting:GeneralRules:0:Limit"]} " +
+                                  $"requests** per **{configuration["IpRateLimiting:GeneralRules:0:Period"]}** per IP.",
                     License = new OpenApiLicense
                     {
                         Name = "MIT License",
@@ -63,6 +64,11 @@ namespace IC_BikeTrainer_Backend.Configuration
 
                     switch (controllerName)
                     {
+                        case "Auth":
+                            apiDesc.ActionDescriptor.RouteValues["controller"] = "Authentication Controller";
+                            apiDesc.GroupName = "auth";
+                            break;
+                        
                         case "GodMode":
                             apiDesc.ActionDescriptor.RouteValues["controller"] = "God Mode Controller";
                             apiDesc.GroupName = "godMode";
