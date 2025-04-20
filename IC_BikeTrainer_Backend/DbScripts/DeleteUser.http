@@ -4,7 +4,7 @@
 @adminUser = alex
 @adminPass = password123
 
-POST {{baseUrl}}/api/user/login
+POST {{baseUrl}}/api/auth/login
 Content-Type: application/json
 
 {
