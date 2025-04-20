@@ -24,11 +24,13 @@ namespace IC_BikeTrainer_Backend.Controllers
         /// </remarks>
         /// <param name="request">An object containing updated details for the user.</param>
         /// <response code="200">User successfully updated.</response>
+        /// <response code="401">If the user is not authenticated (unauthorized action).</response>
         /// <response code="404">If the user is not found or no changes were made.</response>
         /// <response code="500">If an internal server error occurs.</response>
         [Authorize]
         [HttpPut("updateProfile")]
         [ProducesResponseType(typeof(object), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> UpdateOwnProfile([FromBody] UpdateUserRequest request)
