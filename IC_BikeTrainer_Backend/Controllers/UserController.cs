@@ -16,6 +16,7 @@ namespace IC_BikeTrainer_Backend.Controllers
             _userService = userService;
         }
         
+        /// <summary>
         /// Updates the authenticated user's information.
         /// </summary>
         /// <remarks>
