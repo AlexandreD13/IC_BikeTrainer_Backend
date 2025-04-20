@@ -62,7 +62,8 @@ namespace IC_BikeTrainer_Backend.Controllers
 
             return Ok(new
             {
-                authToken = token,
+                message = "Login successful.",
+                jwt = token,
                 userId = user.Id
             });
         }
@@ -118,7 +119,7 @@ namespace IC_BikeTrainer_Backend.Controllers
                 {
                     message = $"User '{request.Username}' created.",
                     userId,
-                    authToken = token
+                    jwt = token
                 });
             }
             catch (Exception ex)
