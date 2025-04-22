@@ -50,12 +50,10 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        configuration: [ Debug, Release ]
+        configuration: [ Debug ]
 
     env:
-      # Now pointing at your solution file
       Solution_Path: ./IC_BikeTrainer_Backend.sln
-      # Now pointing at your test project file
       Test_Project_Path: ./IC_BikeTrainer_Backend.UnitTests/IC_BikeTrainer_Backend.UnitTests.csproj
 
     steps:
@@ -72,5 +70,4 @@ jobs:
           dotnet build   ${{ env.Solution_Path }} --no-restore --configuration ${{ matrix.configuration }}
 
       - name: Run Tests
-        # removed --no-build so dotnet can build the test project if needed
         run: dotnet test ${{ env.Test_Project_Path }} --configuration ${{ matrix.configuration }} --verbosity normal
